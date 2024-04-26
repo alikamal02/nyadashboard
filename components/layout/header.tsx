@@ -9,11 +9,11 @@ export default function Header() {
     <div className="fixed top-0 left-0 right-0 supports-backdrop-blur:bg-background/60 border-b bg-background/95 backdrop-blur z-20">
       <nav className="h-14 flex items-center justify-between px-4">
         <div className="hidden lg:block">
-          <Link href="https://formd.se" target="_blank">
+          <Link href="/dashboard">
             <img
               src="/logo.png" // Replace with the path to your logo.png
               alt="Logo"
-              className="h-12 w-12 mr-2 cursor-pointer" // Doubled the size and added cursor-pointer
+              className="mr-2 h-12 w-12"// Doubled the size and added cursor-pointer
             />
           </Link>
         </div>
