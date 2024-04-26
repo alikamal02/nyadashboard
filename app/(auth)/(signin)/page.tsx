@@ -5,8 +5,8 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Autentisering",
-  description: "Autentiseringsformulär byggda med komponenterna.",
+  title: "FORMD beta",
+  description: "formd inloggning",
 };
 
 export default function AuthenticationPage() {
