@@ -16,8 +16,10 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import Link from "next/link";
-import GoogleSignInButton from "../github-auth-button";
+import GoogleSignInButton from "@/components/GoogleSignInButton";
 import { useRouter } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
+
 
 
 const formSchema = z.object({
@@ -26,8 +28,9 @@ const formSchema = z.object({
     });
 
   const signInForm = () => {
+      const router = useRouter();
+      const { toast } = useToast();
   
-  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -36,27 +39,29 @@ const formSchema = z.object({
     },
   });
 
-
 const onSubmit = async (values: z.infer<typeof formSchema>) => {
-  const response = await fetch('/api/auth/user', {
-      method: "POST",
-    headers: {
-      "Content-Type": 'application/json',
-    },
-    body: JSON.stringify({
-        "username": values.username,
-        "email": values.email,
-        "password": values.password,
-    })
-  })
+  const signInData = await signIn("credentials", {
+    email: values.email,
+    password: values.password,
+    redirect: false, // Prevent automatic redirection
+  });
 
-  if (response.ok) {
-        router.push("/sign-in");
-    } else {
-        
-        console.error("Registration failed");
-    }
+
+  if (signInData.error) {
+    // The sign-in failed
+    toast({
+      title: "Inloggningsfel",
+      description: signInData.error,
+      variant: "destructive",
+    });
+  } else {
+    // The sign-in was successful
+    router.refresh();
+    router.push("/dashboard");
+  }
 };
+
+
 
   return (
     <>
@@ -113,8 +118,9 @@ const onSubmit = async (values: z.infer<typeof formSchema>) => {
           </span>
         </div>
       </div>
+      <GoogleSignInButton>Logga in med Google</GoogleSignInButton>
       <Button className="w-full" type="button">
-      <Link href="/signUp">
+      <Link href="/signup">
       Skapa ett konto
       </Link>
       </Button>
@@ -143,3 +149,24 @@ export default signInForm;
       callbackUrl: callbackUrl ?? "/dashboard",
     });
   };*/
+
+
+
+          /*   console.log(values);
+  const response = await fetch('/api/auth/user', {
+      method: "POST",
+    headers: {
+      "Content-Type": 'application/json',
+    },
+    body: JSON.stringify({
+        "email": values.email,
+        "password": values.password,
+    })
+  })
+
+  if (response.ok) {
+        router.push("C:\Users\Mubar\Source\Repos\Mubsal\nyadashboard\app\(dashboard)\dashboard\page.tsx");
+    } else {
+        
+        console.error("Registration failed");
+    }*/

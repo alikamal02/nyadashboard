@@ -1,6 +1,5 @@
 "use client";
-
-import { useForm } from 'react-hook-form';
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -8,20 +7,26 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '../ui/form';
-import * as z from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Input } from '../ui/input';
-import { Button } from '../ui/button';
-import Link from 'next/link';
-import GoogleSignInButton from '../GoogleSignInButton';
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { zodResolver } from "@hookform/resolvers/zod";
+//import { signIn } from "next-auth/react";
+//import { useSearchParams } from "next/navigation";
+//import { useState } from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import Link from "next/link";
+import GoogleSignInButton from "../github-auth-button";
+import { useToast } from "@/components/ui/use-toast";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
-  "username": z.string().min(3, "Username is required").max (100),
   "email": z.string().email({ message: "Enter a valid email address" }),
   "password": z.string()
     .min(1, "Password is required")
     .min(8, "Password must be at least 8 characters"),
+  "firstName": z.string().min(3, "First name is required").max(100),
+  "lastName": z.string().min(3, "Last name is required").max(100),
   "confirmPassword": z.string().min(1, "password confirmation is required") 
 })
 .refine(data => data.password === data.confirmPassword, {
@@ -29,34 +34,78 @@ const formSchema = z.object({
     path: ["confirmPassword"],
 });
 
-
 const signUpForm = () => {
-  const router = useRouter();
+    const router = useRouter();
+    const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-        "username": "",
+        "firstName": "",
+        "lastName": "",
         "email": "",
         "password": "",
         "confirmPassword": "",
     },
   });
-};
 
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    const res = await fetch('/api/auth/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(values),
+    });
 
+    if (res.ok) {
+      const data = await res.json();
+      // Handle successful signup
+      toast({
+      title: "Success",
+      description: "User created successfully",
+      duration: 5000,
+    });
+     // You might want to redirect the user to the dashboard page or show a success message
+     router.refresh(); 
+     router.push("/signin");
+    } else {
+      const error = await res.json();
+      // Handle error during signup
+      // You might want to show an error message to the user
+      toast({
+        title: "Fel",
+        description: error.message,
+        duration: 5000,
+        variant: "destructive",
+      });
+    }
+  };
 
-return (
+  return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className='w-full'>
         <div className='space-y-2'>
           <FormField
             control={form.control}
-            name='username'
+            name='firstName'
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
+                <FormLabel>First Name</FormLabel>
                 <FormControl>
-                  <Input placeholder='johndoe' {...field} />
+                  <Input placeholder='John' {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='lastName'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Last Name</FormLabel>
+                <FormControl>
+                  <Input placeholder='Doe' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -119,8 +168,8 @@ return (
       </div>
       <GoogleSignInButton>Sign up with Google</GoogleSignInButton>
       <p className='text-center text-sm text-gray-600 mt-2'>
-        If you don&apos;t have an account, please&nbsp;
-        <Link className='text-blue-500 hover:underline' href='/signIn'>
+        If you have an account, please {""}
+        <Link className='text-blue-500 hover:underline' href="/signin">
           Sign in
         </Link>
       </p>
@@ -128,4 +177,4 @@ return (
   );
 };
 
-   export default signUp;
+export default signUpForm;

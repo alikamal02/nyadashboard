@@ -38,3 +38,6 @@ next-env.d.ts
 /.vs/nyadashboard/v17
 /.vs/nyadashboard/config
 /.vs
+.env
+.env
+.env.local
