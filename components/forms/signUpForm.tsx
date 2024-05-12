@@ -16,7 +16,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import Link from "next/link";
-import GoogleSignInButton from "../github-auth-button";
+import GoogleSignInButton from "@/components/GoogleSignInButton";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 

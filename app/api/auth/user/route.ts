@@ -94,7 +94,6 @@ export async function POST(req: Request) {
     }
     catch(error) {
         // handle error here
-        console.error(error);
        return NextResponse.json({ status: 500, message: "An error occurred while creating the user" });
     }
 }

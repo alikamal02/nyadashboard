@@ -47,7 +47,7 @@ const onSubmit = async (values: z.infer<typeof formSchema>) => {
   });
 
 
-  if (signInData.error) {
+  if (signInData && signInData.error) {
     // The sign-in failed
     toast({
       title: "Inloggningsfel",
