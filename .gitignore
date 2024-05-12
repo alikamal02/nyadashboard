@@ -33,3 +33,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/.vs/nyadashboard/copilot-chat/a3f29c37/sessions
+/.vs/nyadashboard/FileContentIndex
+/.vs/nyadashboard/v17
+/.vs/nyadashboard/config
+/.vs
+.env
+.env
+.env.local

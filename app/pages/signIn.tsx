@@ -73,4 +73,6 @@ export default function AuthenticationPage() {
       </div>
     </div>
   );
-};
+}
+
+
