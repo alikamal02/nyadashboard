@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { signOut, useSession } from "next-auth/react";
-import { getServerSession } from "next-auth/server";
+//import { getServerSession } from "next-auth/server";
 import { authOptions } from "@/lib/auth";
 
 

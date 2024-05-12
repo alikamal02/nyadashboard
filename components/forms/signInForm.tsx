@@ -11,8 +11,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
-import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+//import { useSearchParams } from "next/navigation";
+//import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import Link from "next/link";
@@ -27,7 +27,7 @@ const formSchema = z.object({
     password: z.string().min(8),
     });
 
-  const signInForm = () => {
+  const SignInForm = () => {
       const router = useRouter();
       const { toast } = useToast();
   
@@ -128,7 +128,7 @@ const onSubmit = async (values: z.infer<typeof formSchema>) => {
   );
 };
 
-export default signInForm;
+export default SignInForm;
 
 
 
