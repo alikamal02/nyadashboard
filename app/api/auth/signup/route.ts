@@ -52,6 +52,10 @@ const UserSchema  = z.object({
 
 export async function POST(req: Request) {
     try {
+
+        // Test the database connection
+        await prisma.$connect();
+
         const body = await req.json();
         const { email,password, firstName, lastName } = UserSchema.parse(body);
 
@@ -95,6 +99,6 @@ export async function POST(req: Request) {
     catch(error) {
         // handle error here
         console.error(error);
-       return NextResponse.json({ status: 500, message: "An error occurred while creating the user" });
+        return NextResponse.json({ message: "An error occurred while creating the user" }, { status: 500 });
     }
 }
