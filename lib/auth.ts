@@ -2,12 +2,12 @@ import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GithubProvider from "next-auth/providers/github";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import prisma  from "@/lib/db";
+import { db } from "@/lib/db";
 import { compare } from "bcrypt";
 import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
+  adapter: PrismaAdapter(db),
   secret: process.env.NEXTAUTH_SECRET,
   session: {
     strategy: "jwt",
@@ -32,7 +32,7 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
-        const existingUser = await prisma.user.findUnique({
+        const existingUser = await db.user.findUnique({
           where: { email: credentials?.email }
         });
 

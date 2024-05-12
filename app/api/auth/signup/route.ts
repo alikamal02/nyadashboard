@@ -35,7 +35,7 @@ export async function POST(req: Request) {
 
 import { NextResponse } from "next/server";
 import { hash } from "bcrypt";
-import prisma from "@/lib/db";
+import { db } from "@/lib/db";
 import * as z from "zod";
 
 //Define a schema for input validation
@@ -54,14 +54,14 @@ export async function POST(req: Request) {
     try {
 
         // Test the database connection
-        await prisma.$connect();
+        await db.$connect();
 
         const body = await req.json();
         const { email,password, firstName, lastName } = UserSchema.parse(body);
 
         // Do something with the data
         // Check if the email exists in the database
-        const existingUserByEmail = await prisma.user.findUnique({
+        const existingUserByEmail = await db.user.findUnique({
             where: { email: email }
         });
         if (existingUserByEmail) {
@@ -83,7 +83,7 @@ export async function POST(req: Request) {
         const hashedPassword = await hash(password, 10);
 
         // If the user does not exist, create a new user
-        const newUser = await prisma.user.create({
+        const newUser = await db.user.create({
             data: {
                 email,
                 password: hashedPassword,
