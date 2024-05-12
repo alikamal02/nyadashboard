@@ -35,7 +35,7 @@ export async function POST(req: Request) {
 
 import { NextResponse } from "next/server";
 import { hash } from "bcrypt";
-import { db } from "@/lib/db";
+import db  from "@/lib/db";
 import * as z from "zod";
 
 //Define a schema for input validation
