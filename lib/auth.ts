@@ -13,7 +13,9 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
     
   },
- 
+  pages: {
+    signIn: "/signin",
+  },
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -82,14 +84,6 @@ export const authOptions: NextAuthOptions = {
         }
       }
       return session;
-    },
-
-    
-    async redirect({ url, baseUrl }) {
-      return url.startsWith(baseUrl)
-        ? Promise.resolve(url)
-        : Promise.resolve(baseUrl + '/dashboard');
-    },
-    
+    }
   }
 }
