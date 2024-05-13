@@ -1,13 +1,13 @@
 import { FC, ReactNode } from "react";
 import { Button } from "@/components/ui/button";
-import{signIn} from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 interface GoogleSignInButtonProps {
     children?: ReactNode;
 }
 
 const GoogleSignInButton: FC<GoogleSignInButtonProps> = ({ children }) => {
- const signInWithGoogle = () => signIn("google", {callbackUrl: "http://localhost:3000/dashboard"});
+ const signInWithGoogle = () => signIn("google", {callbackUrl: "https://nyadashboard.vercel.app/dashboard"});
     return (
     <Button
       onClick={() => {signInWithGoogle()}}
