@@ -7,7 +7,7 @@ interface GoogleSignInButtonProps {
 }
 
 const GoogleSignInButton: FC<GoogleSignInButtonProps> = ({ children }) => {
- const signInWithGoogle = () => signIn("google");
+ const signInWithGoogle = () => signIn("google", {callbackUrl: "/dashboard"});
     return (
     <Button
       onClick={() => {signInWithGoogle()}}
