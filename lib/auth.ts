@@ -86,11 +86,12 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
 
+    /*
     async redirect({ url, baseUrl }) {
       return url.startsWith(baseUrl)
         ? Promise.resolve(url)
         : Promise.resolve(baseUrl + '/dashboard');
     },
-
+    */
   }
 }

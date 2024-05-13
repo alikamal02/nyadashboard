@@ -40,12 +40,13 @@ const formSchema = z.object({
   });
 
 const onSubmit = async (values: z.infer<typeof formSchema>) => {
+  const callbackUrl = "/dashboard"; // Define your callback URL here
   const signInData = await signIn("credentials", {
     email: values.email,
     password: values.password,
+    callbackUrl: callbackUrl,
     redirect: false, // Prevent automatic redirection
   });
-
 
   if (signInData && signInData.error) {
     // The sign-in failed
@@ -56,7 +57,7 @@ const onSubmit = async (values: z.infer<typeof formSchema>) => {
     });
   } else {
     // The sign-in was successful
-    router.push("/dashboard");
+    router.push(callbackUrl);
   }
 };
 
