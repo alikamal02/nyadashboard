@@ -13,9 +13,7 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
     
   },
-  pages: {
-    signIn: "/signin",
-  },
+
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
