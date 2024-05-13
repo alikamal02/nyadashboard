@@ -7,7 +7,7 @@ interface GoogleSignInButtonProps {
 }
 
 const GoogleSignInButton: FC<GoogleSignInButtonProps> = ({ children }) => {
- const signInWithGoogle = () => signIn("google", {callbackUrl: "https://nyadashboard.vercel.app/dashboard"});
+ const signInWithGoogle = () => signIn("google");
     return (
     <Button
       onClick={() => {signInWithGoogle()}}

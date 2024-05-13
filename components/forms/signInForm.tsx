@@ -56,7 +56,6 @@ const onSubmit = async (values: z.infer<typeof formSchema>) => {
     });
   } else {
     // The sign-in was successful
-    router.refresh();
     router.push("/dashboard");
   }
 };
