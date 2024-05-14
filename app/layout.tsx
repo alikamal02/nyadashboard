@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { getServerSession } from "next-auth";
+import { Analytics } from "@vercel/analytics/react";
 
 
 const inter = Inter({ subsets: ["latin"] });
