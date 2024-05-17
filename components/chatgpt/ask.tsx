@@ -9,37 +9,40 @@ export default function ChatComponent() {
     console.log("Input:", input);
 
     return (
-        <div>
-            {messages.map((message: Message) => (
-                <div key={message.id} className="border border-gray-300 p-4 mb-4 rounded-lg bg-gray-50 text-black font-bold">
-                    {
-                        message.role === "assistant"
-                            ? <h3 className="text-lg font-semibold mt-2">AI assistant</h3>
-                            : <h3 className="text-lg font-semibold mt-2">Användare</h3>
-                    }
-                    {message.content.split("\n").map((currentTextBlock: string, index: number) => (
-                        currentTextBlock === ""
-                            ? <p key={message.id + index}>&nbsp;</p>
-                            : <p key={message.id + index}>{currentTextBlock}</p>
-                    ))}
-                </div>
-            ))}
+        <div className="flex mt-20">
+            <div>
+                {messages.map((message: Message) => (
+                    <div key={message.id} className="border border-gray-300 p-4 mb-4 rounded-lg bg-gray-50 text-black font-bold">
+                        {
+                            message.role === "assistant"
+                                ? <h3 className="text-lg font-semibold mt-2">AI assistant</h3>
+                                : <h3 className="text-lg font-semibold mt-2">Användare</h3>
+                        }
+                        {message.content.split("\n").map((currentTextBlock: string, index: number) => (
+                            currentTextBlock === ""
+                                ? <p key={message.id + index}>&nbsp;</p>
+                                : <p key={message.id + index}>{currentTextBlock}</p>
+                        ))}
+                    </div>
+                ))}
 
-            <form className="mt-12" onSubmit={handleSubmit}>
-                <p>Användarfråga</p>
-                <textarea
-                    className="mt-2 w-full bg-slate-500 p-2 border border-gray-300 rounded-lg"
-                    placeholder={"Vad behöver du hjälp med idag?"}
-                    value={input}
-                    onChange={handleInputChange}
-                />
-                <button className="rounded-md bg-blue-600 p-2 mt-2 text-white">
-                    Skicka fråga
-                </button>
-            </form>
+                <form className="mt-12" onSubmit={handleSubmit}>
+                    <p>Användarfråga</p>
+                    <textarea
+                        className="mt-2 w-full bg-slate-500 p-2 border border-gray-300 rounded-lg"
+                        placeholder={"Vad behöver du hjälp med idag?"}
+                        value={input}
+                        onChange={handleInputChange}
+                    />
+                    <button className="rounded-md bg-blue-600 p-2 mt-2 text-white">
+                        Skicka fråga
+                    </button>
+                </form>
+            </div>
         </div>
     );
 }
+
 
 
 
