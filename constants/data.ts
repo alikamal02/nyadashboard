@@ -119,6 +119,12 @@ export const navItems: NavItem[] = [
     label: "Dashboard",
   },
   {
+    title: "Planering",
+    href: "/dashboard/chatgpt",
+    icon: "book",
+    label: "Ai-assistent",
+  },
+  {
     title: "User",
     href: "/dashboard/user",
     icon: "user",
@@ -137,7 +143,7 @@ export const navItems: NavItem[] = [
     label: "profile",
   },
   {
-    title: "Kanban",
+    title: "Journal",
     href: "/dashboard/kanban",
     icon: "kanban",
     label: "kanban",

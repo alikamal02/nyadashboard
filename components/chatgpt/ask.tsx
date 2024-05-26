@@ -1,47 +1,54 @@
 "use client"
 import { useChat, Message } from "ai/react";
-import { FormEvent } from "react";
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function ChatComponent() {
-    const { input, setInput, handleInputChange, handleSubmit, isLoading, messages } = useChat();
+    const { input, handleInputChange, handleSubmit, messages } = useChat();
 
     console.log("Messages:", messages);
     console.log("Input:", input);
 
     return (
-        <div className="flex mt-20">
-            <div>
+        <div className="flex flex-row items-start mt-20">
+        
+        <form className="w-[500px] max-w-2xl mb-4" onSubmit={handleSubmit}>
+            <p className="font-bold text-black dark:text-white mb-2">Skriv här</p>
+            <textarea
+                className="w-full h-[150px] p-4 border border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-300 resize-none"
+                placeholder="Jag behöver hjälp att plugga på ekvationstabellen, allt från 1ans till 10ans. Hur ska jag börja för att göra det?"
+                value={input}
+                onChange={handleInputChange}
+            />
+            <Button className="mt-2 bg-blue-600 text-white p-4 rounded-md">
+                Skicka
+            </Button>
+        </form>
+
+        {messages.length > 0 && (
+            <ScrollArea className="w-full max-w-5xl h-96 overflow-y-auto border border-gray-200 rounded-lg p-4  ml-4">
                 {messages.map((message: Message) => (
-                    <div key={message.id} className="border border-gray-300 p-4 mb-4 rounded-lg bg-gray-50 text-black font-bold">
-                        {
-                            message.role === "assistant"
-                                ? <h3 className="text-lg font-semibold mt-2">AI assistant</h3>
-                                : <h3 className="text-lg font-semibold mt-2">Användare</h3>
-                        }
-                        {message.content.split("\n").map((currentTextBlock: string, index: number) => (
-                            currentTextBlock === ""
-                                ? <p key={message.id + index}>&nbsp;</p>
-                                : <p key={message.id + index}>{currentTextBlock}</p>
-                        ))}
+                    <div key={message.id} className="mb-4">
+                        <div className={`p-4 rounded-lg ${message.role === "assistant" ? 'bg-blue-100 text-black' : 'bg-gray-200 text-black'}`}>
+                            {
+                                message.role === "assistant"
+                                    ? <h3 className="text-lg font-semibold">AI assistant</h3>
+                                    : <h3 className="text-lg font-bold">Du</h3>
+                            }
+                            {message.content.split("\n").map((currentTextBlock: string, index: number) => (
+                                currentTextBlock === ""
+                                    ? <p key={message.id + index}>&nbsp;</p>
+                                    : <p key={message.id + index}>{currentTextBlock}</p>
+                            ))}
+                        </div>
                     </div>
                 ))}
-
-                <form className="mt-12" onSubmit={handleSubmit}>
-                    <p>Användarfråga</p>
-                    <textarea
-                        className="mt-2 w-full bg-slate-500 p-2 border border-gray-300 rounded-lg"
-                        placeholder={"Vad behöver du hjälp med idag?"}
-                        value={input}
-                        onChange={handleInputChange}
-                    />
-                    <button className="rounded-md bg-blue-600 p-2 mt-2 text-white">
-                        Skicka fråga
-                    </button>
-                </form>
-            </div>
-        </div>
+            </ScrollArea>
+        )}
+    </div>
     );
 }
+
 
 
 

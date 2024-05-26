@@ -18,22 +18,21 @@ const InstructionBox: React.FC<InstructionBoxProps> = ({ title, content, buttonT
     };
 
     return (
-        <div className={`p-4 bg-gray-500 rounded-lg ${className}`}>
-            <h3 className="font-bold">{"Så här gör vi"}</h3>
-            {
-    
-    <p>Vi börjar med en timer på <u>15 minuter.</u> <br />
-    <br />Efter det tar vi en paus. Du bestämmer själv hur lång paus den här gången.
-    Sedan fortsätter vi igen med en timer på <u>15 minuter.</u>  <br /><br />Låter detta bra, klicka på <u>starta.</u>
-    </p>
-} 
-            <Button
-                className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                onClick={handleButtonClick}
-            >
-                {"Starta"}
-            </Button>
-        </div>
+        <div className={`p-4 bg-gray-600 text-white rounded-xl ${className}`}>
+        <h3>{"Så här gör vi"}</h3>
+        {
+            <p>Vi börjar med en timer på <u>15 minuter.</u> <br />
+            <br />Efter det tar vi en paus. Du bestämmer själv hur lång paus den här gången.
+            Sedan fortsätter vi igen med en timer på <u>15 minuter.</u>  <br /><br />Låter detta bra, klicka på <u>starta.</u>
+            </p>
+        } 
+        <Button
+            className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            onClick={handleButtonClick}
+        >
+            {"Starta"}
+        </Button>
+    </div>
     );
 };
 
