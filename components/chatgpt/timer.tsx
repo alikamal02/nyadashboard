@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 interface TimerProps {
     initialTime: number;
-    onTick?: (remainingTime: number) => void; // Add this line
+    onTick?: (remainingTime: number) => void;
 }
 
 const Timer: React.FC<TimerProps> = ({ initialTime, onTick }) => {
@@ -13,7 +13,7 @@ const Timer: React.FC<TimerProps> = ({ initialTime, onTick }) => {
         let interval: NodeJS.Timeout = setInterval(() => {
             setTime(prevTime => {
                 const newTime = prevTime > 0 ? prevTime - 1 : 0;
-                onTick && onTick(newTime); // Call the onTick function
+                onTick && onTick(newTime); 
                 return newTime;
             });
         }, 1000);
@@ -21,7 +21,7 @@ const Timer: React.FC<TimerProps> = ({ initialTime, onTick }) => {
         return () => {
             clearInterval(interval);
         };
-    }, [onTick]); // Add onTick to the dependency array
+    }, [onTick]); 
 
     const formatTime = (seconds: number) => {
         const minutes = Math.floor(seconds / 60);

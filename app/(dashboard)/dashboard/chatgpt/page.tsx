@@ -33,7 +33,7 @@ function Page() {
             <Ask/>
 
           </div>
-        {/* You might want to add more elements here as per your layout needs */}
+        
 
 
       </div>

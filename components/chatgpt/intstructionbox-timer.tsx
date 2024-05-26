@@ -6,17 +6,17 @@ import { Progress } from "@/components/ui/progress";
 
 const InstructionBoxTimer = () => {
     const [timerActive, setTimerActive] = useState(false);
-    const initialTime = 15; // set the initial time for the timer
-    const [progressValue, setProgressValue] = useState(100); // set the initial value for the progress bar to 100
+    const initialTime = 15; 
+    const [progressValue, setProgressValue] = useState(100); 
 
     const handleStartTimer = () => {
-        setTimerActive(true); // This will start the timer
+        setTimerActive(true); 
     };
 
     const handleTick = (remainingTime: number) => {
-        // Convert the remaining time from seconds to minutes
+        
         const remainingTimeInMinutes = remainingTime / 60;
-        // Calculate the progress value based on the remaining time in minutes
+        
         const progress = (remainingTimeInMinutes / initialTime) * 100;
         setProgressValue(progress);
     };
