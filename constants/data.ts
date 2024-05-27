@@ -118,6 +118,16 @@ export const navItems: NavItem[] = [
     icon: "dashboard",
     label: "Dashboard",
   },
+
+  {
+
+    title: "Boka samtal",
+    href: "/",//"/dashboard/video",
+    icon: "video",
+    label: "Videosamtal",
+
+  },
+
   {
     title: "Planering",
     href: "/dashboard/chatgpt",

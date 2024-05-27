@@ -6,8 +6,10 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 export default function ChatComponent() {
     const { input, handleInputChange, handleSubmit, messages } = useChat();
 
+    
     console.log("Messages:", messages);
     console.log("Input:", input);
+    
 
     return (
         <div className="flex flex-row items-start mt-20">
