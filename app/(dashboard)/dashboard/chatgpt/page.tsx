@@ -24,6 +24,7 @@ function Page() {
             <InstructionBoxTimer />
           </div>
           <div className="flex flex-col items-start" style={{ width: '800px', marginTop: '2rem' }}>
+            <h1 className=" bg-slate-700 text-white rounded-md">(Kommer snart!)</h1>
             <FileUpload /> {/* Use FileUpload without handlers */}
           </div>
           <Ask/>

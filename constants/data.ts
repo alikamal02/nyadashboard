@@ -121,7 +121,7 @@ export const navItems: NavItem[] = [
 
   {
 
-    title: "Boka samtal",
+    title: "Boka samtal (beta)",
     href: "/",//"/dashboard/video",
     icon: "video",
     label: "Videosamtal",
@@ -129,7 +129,7 @@ export const navItems: NavItem[] = [
   },
 
   {
-    title: "Planering",
+    title: "Planering (beta)",
     href: "/dashboard/chatgpt",
     icon: "book",
     label: "Ai-assistent",
@@ -153,7 +153,7 @@ export const navItems: NavItem[] = [
     label: "profile",
   },
   {
-    title: "Journal",
+    title: "Journal (beta)",
     href: "/dashboard/kanban",
     icon: "kanban",
     label: "kanban",
