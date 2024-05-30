@@ -48,26 +48,26 @@ const InstructionBox: React.FC<InstructionBoxProps> = ({ title, content, buttonT
             )}
             <div className="flex space-x-4 mt-2">
                 <Button
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    className="bg-blue-800 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded"
                     onClick={handleButtonClick}
                 >
                     {"Starta"}
                 </Button>
                 <Button 
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    className="bg-blue-800 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded"
                     onClick={handlePauseClick}
                 >   
                     {"Pausa"}
                 </Button>
                 <Button 
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    className="bg-blue-800 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded"
                     onClick={handleHideClick}
                 >
                     {"Göm timer"}
                 </Button>
                 {showRestart && (
                     <Button 
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        className="bg-blue-800 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded"
                         onClick={onRestart}
                     >
                         {"Starta om"}
