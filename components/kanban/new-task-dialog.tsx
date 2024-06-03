@@ -33,12 +33,12 @@ export default function NewTaskDialog() {
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="secondary" size="sm">
-          ＋ Lägg till nytt att göra
+          ＋ Lägg till nytt inlägg
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Add New Todo</DialogTitle>
+          <DialogTitle>Lägg till nytt inlägg</DialogTitle>
           <DialogDescription>
             Vad vill du skriva av dig idag?
           </DialogDescription>
