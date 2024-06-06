@@ -34,7 +34,7 @@ export default function ChatComponent() {
                         <div className={`p-4 rounded-lg ${message.role === "assistant" ? 'bg-blue-100 text-black' : 'bg-gray-200 text-black'}`}>
                             {
                                 message.role === "assistant"
-                                    ? <h3 className="text-lg font-semibold">AI assistant</h3>
+                                    ? <h3 className="text-lg font-semibold">ADHD Coach</h3>
                                     : <h3 className="text-lg font-bold">Du</h3>
                             }
                             {message.content.split("\n").map((currentTextBlock: string, index: number) => (
