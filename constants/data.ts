@@ -122,9 +122,10 @@ export const navItems: NavItem[] = [
   {
 
     title: "Boka samtal (beta)",
-    href: "/",//"/dashboard/video",
+    href: "https://formdbetavideo.vercel.app/",//"/dashboard/video",
     icon: "video",
     label: "Videosamtal",
+    target: "_blank",
 
   },
 

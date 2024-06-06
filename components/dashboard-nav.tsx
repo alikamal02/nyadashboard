@@ -32,6 +32,8 @@ export function DashboardNav({ items, setOpen }: DashboardNavProps) {
               onClick={() => {
                 if (setOpen) setOpen(false);
               }}
+              
+               target={item.target}
             >
               <span
                 className={cn(
@@ -43,6 +45,7 @@ export function DashboardNav({ items, setOpen }: DashboardNavProps) {
                 <Icon className="mr-2 h-4 w-4" />
                 <span>{item.title}</span>
               </span>
+                  
             </Link>
           )
         );
