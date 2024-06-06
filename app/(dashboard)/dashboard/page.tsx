@@ -40,36 +40,36 @@ export default function page() {
            <Button style={{width: '50%', height: '100px', margin:'10px' }}>
             
           <div>
-             <p style={{fontSize: 'large'}}>Plugga till ett prov</p>
-             <p style={{fontSize: 'small'}}>Ladda upp kapitlena till oss så hjälper vi dig</p>
+             <p style={{fontSize: 'large'}}>Studieplanering</p>
+             <p style={{fontSize: 'small'}}>Få hjälp med att planera och organisera dina studier, samt förbättra din studieteknik för att maximera din inlärningseffektivite</p>
            </div>
 </Button>
 <Button style={{width: '50%', height: '100px', margin: '10px'}}>
             
             <div>
-               <p style={{fontSize: 'large'}}>Hjälp med glosor</p>
-               <p style={{fontSize: 'small'}}>Vi hjälper med glosorna, säg bara vilket språk och svårighetsgrad</p>
+               <p style={{fontSize: 'large'}}>Språkhjälp</p>
+               <p style={{fontSize: 'small'}}>Få stöd med att förbättra dina språkkunskaper, inklusive grammatik, läsning och skrivning</p>
              </div>
   </Button>
   <Button style={{width: '50%', height: '100px', margin: '10px'}}>
             
             <div>
-               <p style={{fontSize: 'large'}}>Essäskrivning</p>
-               <p style={{fontSize: 'small'}}>Få tips och råd för att struktrurera och förbättra. Ladda upp din uppsatsplan</p>
+               <p style={{fontSize: 'large'}}>Uppsatsskrivning</p>
+               <p style={{fontSize: 'small'}}>Få hjälp med att strukturera, skriva och korrekturläsa dina uppsatser och andra skriftliga arbeten</p>
              </div>
   </Button>           
   <Button style={{width: '50%', height: '100px', margin:'10px'}}>
             
             <div>
-               <p style={{fontSize: 'large'}}>Matematikförståelse</p>
-               <p style={{fontSize: 'small'}}>Bryt ner komplexa matematiska koncept till enklare steg.</p>
+               <p style={{fontSize: 'large'}}>Matematikhjälp</p>
+               <p style={{fontSize: 'small'}}>Få stöd med att förstå och lösa matematiska problem, från grundläggande till avancerad nivå</p>
              </div>
   </Button>
   <Button style={{width: '50%', height: '100px', margin:'10px' }} type="button">
   <Link href="/dashboard/chatgpt">
       <div>
-        <p style={{fontSize: 'large'}}>Något annat</p>
-        <p style={{fontSize: 'small'}}>Skriv till Formd här</p>
+        <p style={{fontSize: 'large'}}>Individuell support</p>
+        <p style={{fontSize: 'small'}}>Behöver du hjälp med något annat? Berätta för oss så hittar vi en lösning som passar dig</p>
       </div>
     
   </Link>
