@@ -13,7 +13,10 @@ export default function page() {
           <Heading title={`Journal`} description="Din dagbok" />
           <NewTaskDialog />
         </div>
+        <div className="flex justify-center items-center">
         <KanbanBoard />
+
+        </div>
       </div>
     </>
   );
