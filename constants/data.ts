@@ -129,12 +129,13 @@ export const navItems: NavItem[] = [
 
   },
 
+  /*
   {
     title: "Planering (beta)",
     href: "/dashboard/chatgpt",
     icon: "book",
     label: "Ai-assistent",
-  },
+  },*/
   /*
   {
     title: "User",

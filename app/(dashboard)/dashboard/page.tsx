@@ -38,35 +38,44 @@ export default function page() {
           <div className="flex justify-center items-center flex-col ">
           <h1 style={{fontSize:'x-large', fontWeight:'bold'}} >Vad behöver du hjälp med?</h1>
            <Button style={{width: '50%', height: '100px', margin:'10px' }}>
+          <Link href="/dashboard/chatgpt">
             
           <div>
              <p style={{fontSize: 'large'}}>Studieplanering</p>
              <p style={{fontSize: 'small'}}>Få hjälp med att planera och organisera dina studier, samt förbättra din studieteknik för att maximera din inlärningseffektivite</p>
            </div>
+</Link>
 </Button>
 <Button style={{width: '50%', height: '100px', margin: '10px'}}>
+<Link href="/dashboard/chatgpt">
             
             <div>
                <p style={{fontSize: 'large'}}>Språkhjälp</p>
                <p style={{fontSize: 'small'}}>Få stöd med att förbättra dina språkkunskaper, inklusive grammatik, läsning och skrivning</p>
              </div>
+</Link>
   </Button>
+
   <Button style={{width: '50%', height: '100px', margin: '10px'}}>
+<Link href="/dashboard/chatgpt">
             
             <div>
                <p style={{fontSize: 'large'}}>Uppsatsskrivning</p>
                <p style={{fontSize: 'small'}}>Få hjälp med att strukturera, skriva och korrekturläsa dina uppsatser och andra skriftliga arbeten</p>
              </div>
-  </Button>           
+</Link>
+  </Button>
   <Button style={{width: '50%', height: '100px', margin:'10px'}}>
+<Link href="/dashboard/chatgpt">
             
             <div>
                <p style={{fontSize: 'large'}}>Matematikhjälp</p>
                <p style={{fontSize: 'small'}}>Få stöd med att förstå och lösa matematiska problem, från grundläggande till avancerad nivå</p>
              </div>
+  </Link>
   </Button>
   <Button style={{width: '50%', height: '100px', margin:'10px' }} type="button">
-  <Link href="/dashboard/chatgpt">
+  <Link href="/dashboard/chatgpt">           
       <div>
         <p style={{fontSize: 'large'}}>Individuell support</p>
         <p style={{fontSize: 'small'}}>Behöver du hjälp med något annat? Berätta för oss så hittar vi en lösning som passar dig</p>
